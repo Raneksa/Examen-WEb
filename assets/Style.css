@@ -1,0 +1,93 @@
+
+body{
+    background-position: center;
+    background: linear-gradient(rgb(47, 47, 255), rgb(47, 47, 255),rgb(50, 252, 252) ,#fff);
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    height: 63vh;
+    position:relative;
+    box-sizing: border-box;
+}
+h1{
+    color: #fff;
+    font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-shadow: 0px 0px 4px #fff;
+    margin-top: 12ch;
+}
+p{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    color: #fff;
+}
+
+button{
+    text-align: center;
+    margin-left: 45%;
+    background-color:#fff ;
+    padding:1ch;
+    border-radius: 10px;
+    padding-left: 7ch;
+    padding-right: 7ch;
+    color: rgb(47, 47, 255);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border:solid rgb(47, 47, 255);
+    box-shadow: 0px 0px 25px #fff;
+    transition: background-color 0.5s ease ;
+    cursor: pointer;
+}
+button:hover{
+    background-color:rgb(47, 47, 255);
+    color: #fff;
+}
+.cloud1 {
+    width: 100%;
+    margin-top: -40vh;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    background-repeat:repeat-x;
+    transform: translateY(-100%);
+}
+.cloud2{
+    margin-top: -22ch;
+    width:60%;
+    display: flex;
+    gap: 30%;
+    margin-left: 30ch;
+    background-repeat:repeat-y;
+    opacity:70%;
+}
+img{
+    width: 20%;
+    margin-top: -20ch;
+    transform: translateX(-100%);
+}
+.C2_c1,.C2_c2{
+    animation: move 100s infinite linear;
+}
+@keyframes move {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+.C1_c1,.C1_c2,.C1_c3,.C1_c4{
+    animation: move 120s infinite linear;
+}
+@keyframes move{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(70%);
+    }
+}
