@@ -5,9 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typer-GameGo.com</title>
     <link rel="stylesheet" href="assets/Typer-Game-Go.css">
-    <script src="assets/Script.js"></script>
 </head>
 <body>
+    <div class="loading">
+        <h1 class="counter">loading...<span>0</span>%</h1>
+        <div class="Loading-Bg">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div> 
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
     <div class="Container1">
         <input type="text" class="Case">
         <div class="content-box">
@@ -47,4 +65,50 @@
     </input>
     </div>    
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+<script src="assets/Script.js"></script>
+<script>
+function Start(){
+    let  compteur = document.querySelector("span");
+    let  valeur = 0;
+    
+function Go(){
+    if (valeur === 100){
+        return;
+    }
+
+    valeur += Math.floor(Math.random() * 10) + 1; 
+    
+    if(valeur > 100){
+        valeur = 100 ; 
+    }
+
+    compteur.textContent = valeur;
+    let delai = Math.floor(Math.random() * 200) + 50 ; 
+    setTimeout(Go,delai)
+  }
+    Go();
+}
+Start();
+
+gsap.to("h1", 0.25 ,{
+    delay : 3.5,
+    opacity : 0
+});
+gsap.to(".bar" , 1.5,{
+    delay : 3.5,
+    height : 0,
+    stagger: {
+       amount: 0.25
+    },
+    ease :"power4.inOut",
+    onComplete : () => {
+        document.querySelector(".loading").style.display = "none";
+
+        document.querySelector(".Container1").style.display ="block" ; 
+        }
+    });
+
+</script>
 </html>
+</body>
