@@ -1,7 +1,3 @@
-const phrases = [
-    "Les habitants du village, bien qu'habitués aux bruits étranges, étaient toujours fascinés par ce phénomène . Certains disaient avoir vu des ombres dansantes entre les arbres, d'autres affirmaient avoir entendu des voix, parfois sages, parfois espiègles, qui les guidaient vers des trésors cachés sous la terre ou les conduisaient sur des chemins inexplorés. Mais malgré tout, aucun d'eux n'osait vraiment s'aventurer trop loin dans la forêt durant ces nuits mystérieuses."
-];
-
 const typingText = document.querySelector(".text p");
 const inpField = document.querySelector(".Case");
 const tryAgainBtn = document.querySelector(".content button");
@@ -9,6 +5,7 @@ const timeTag = document.querySelector(".time span b");
 const mistakeTag = document.querySelector(".mistake span");
 const wpmTag = document.querySelector(".wpm span");
 const cpmTag = document.querySelector(".cpm span");
+const modeSelector = document.getElementById("mode");
 
 let timer;
 let maxTime = 60;
@@ -16,30 +13,44 @@ let timeLeft = maxTime;
 let charIndex = 0;
 let mistakes = 0;
 let isTyping = false;
+let defaut = "easy";
+
+const phrase = {
+    easy: [
+        "Le chat dort sur le canapé pendant que je visionne les videos de Dr Toky."
+    ],
+    medium: [
+        "L'assistant Web1 JEAN MARC corrige nos TD avec grande Envergure"
+    ],
+    hard: [
+        "Extravaguant,Modelisée,Mise en evidence"
+    ]
+};
 
 function loadPhrase() {
-    const ranIndex = Math.floor(Math.random() * phrases.length);
+     const selectedPhrases = phrase[defaut];
+        const ranIndex = Math.floor(Math.random() * selectedPhrases.length);
     typingText.innerHTML = "";
-    phrases[ranIndex].split("").forEach(char => {
+    selectedPhrases[ranIndex].split("").forEach(char => {
         let span = `<span>${char}</span>`;
         typingText.innerHTML += span;
     });
     typingText.querySelectorAll("span")[0].classList.add("active");
-
     document.addEventListener("keydown", () => inpField.focus());
     typingText.addEventListener("click", () => inpField.focus());
 }
 
 function initTyping() {
     const characters = typingText.querySelectorAll("span");
-    const typedChar = inpField.value.split("")[charIndex];
+    const Tapée = inpField.value.split("")[charIndex];
 
     if (charIndex < characters.length && timeLeft > 0) {
         if (!isTyping) {
             timer = setInterval(initTimer, 1000);
             isTyping = true;
         }
-        if (typedChar == null) {
+
+        if (Tapée == null) {
             if (charIndex > 0) {
                 charIndex--;
                 if (characters[charIndex].classList.contains("incorrect")) {
@@ -48,7 +59,7 @@ function initTyping() {
                 characters[charIndex].classList.remove("correct", "incorrect");
             }
         } else {
-            if (characters[charIndex].innerText === typedChar) {
+            if (characters[charIndex].innerText === Tapée) {
                 characters[charIndex].classList.add("correct");
             } else {
                 mistakes++;
@@ -85,8 +96,7 @@ function initTimer() {
     }
 }
 
-function resetGame() {
-    loadPhrase();
+function Refaire() {
     clearInterval(timer);
     timeLeft = maxTime;
     charIndex = mistakes = 0;
@@ -96,9 +106,14 @@ function resetGame() {
     wpmTag.innerText = 0;
     mistakeTag.innerText = 0;
     cpmTag.innerText = 0;
+    loadPhrase();
 }
+
+modeSelector.addEventListener("change", () => {
+    defaut = modeSelector.value;
+    Refaire();
+});
 
 loadPhrase();
 inpField.addEventListener("input", initTyping);
-tryAgainBtn.addEventListener("click", resetGame);
-
+tryAgainBtn.addEventListener("click", Refaire);
