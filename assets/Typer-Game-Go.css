@@ -13,7 +13,7 @@ body{
     background: linear-gradient(#007acc, #6DD5FA), #FFFFFF;
 }
 .Container1{
-    width: 700px;
+    width: 800px;
     padding: 35px;
     backdrop-filter: blur(45px);
     border-radius: 20px;
@@ -26,10 +26,8 @@ body{
     position: absolute;
     color:#007acc;
     background: transparent;
-    color:transparent;
     caret-color: #007acc;
 }
-
 .Container1 .content-box{
     padding: 13px 20px 0;
     border-radius: 10px;
@@ -148,4 +146,22 @@ h1{
     height: 100vh;
     z-index: 2;
     display: flex;
+}
+.Selection{
+    display: flex;
+    flex-direction: row;
+    gap: 3ch;
+    padding: 4ch;
+    margin-top: -45ch;
+}
+.Selection #mode{
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    background-color: black;
+}
+.Selection label{
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: underline;
 }
