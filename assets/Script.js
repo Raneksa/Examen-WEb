@@ -20,10 +20,10 @@ const phrase = {
         "Le chat dort sur le canapé pendant que je visionne les videos de Dr Toky."
     ],
     medium: [
-        "L'assistant Web1 JEAN MARC corrige nos TD avec grande Envergure"
+        "L'assistant Web1 JEAN MARC corrige nos TD avec grande Envergure."
     ],
     hard: [
-        "Extravaguant,Modelisée,Mise en evidence"
+        "Extravaguant,Modelisée,Mise en evidence."
     ]
 };
 
