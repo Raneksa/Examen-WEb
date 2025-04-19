@@ -19,10 +19,15 @@ body{
     border-radius: 20px;
     box-shadow: 0 0px 25px white;   
 }
-.Container1 .Case{
+.Case{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     opacity: 0;
-    z-index: -999;
+    z-index: 999;
     position: absolute;
+    color:#007acc;
+    background: transparent;
+    color:transparent;
+    caret-color: #007acc;
 }
 
 .Container1 .content-box{
@@ -47,13 +52,16 @@ body{
     position: relative;
 }
 .text p span.correct{
-    color : green;
+    color : #007acc;
+    font-weight: bold;
 }
-.text p span incorrect{
+.text p span.incorrect{
     color: red;
-    border-radius: 4px;
+    font-weight: bold;
 }
-
+input{
+    color: black;
+}
 .text p span.active::before{
     position: absolute;
     content: "";
