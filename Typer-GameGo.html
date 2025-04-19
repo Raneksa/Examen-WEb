@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="assets/Typer-Game-Go.css">
 </head>
 <body>
+    <div class="Selection">
+        <label for="mode">Select mode: </label>
+        <select id="mode">
+            <option value="easy">Facile</option>
+            <option value="medium">Moyen</option>
+            <option value="hard">Difficile</option>
+        </select>
+    </div>
+    
     <div class="loading">
         <h1 class="counter">loading...<span>0</span>%</h1>
         <div class="Loading-Bg">
@@ -27,7 +36,7 @@
         </div>
     </div>
     <div class="Container1">
-        <input type="text" class="Case" />
+        <input type="text" class="Case"/>
         <div class="content-box">
             <div class="text">
                 <p id="phrase"></p>
